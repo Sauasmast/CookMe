@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class Cookme extends Component{
     state = {
-            id:'',
-            ingredient:'',
+        ingredients:''
     }
 
     handleChange = (e) => {
-        console.log("Handling");
-        
+        this.setState({
+            ingredients: e.target.value
+        })
     }    
 
     handleSubmit = (e) => {
