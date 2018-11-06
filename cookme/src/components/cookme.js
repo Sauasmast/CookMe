@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import addpost from '../actioncreator/action';
 
 class Cookme extends Component{
     state = {
@@ -9,11 +11,11 @@ class Cookme extends Component{
         this.setState({
             ingredients: e.target.value
         })
-    }    
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.addpost(this.state.ingredients);
         document.getElementById('ingredients').value ='';
     }
 
@@ -33,5 +35,11 @@ class Cookme extends Component{
     }
 }
 
-export default Cookme;
+const mapDispatchToProps = (dispatch) => {
+    return (
+        { addpost: (ingredient) => dispatch(addpost(ingredient))} 
+    )
+}
+
+export default connect(null, mapDispatchToProps)(Cookme);
 
