@@ -1,4 +1,5 @@
-const initState = {ingredient: []};
+const initState = {ingredient: [],
+                 recipes:[{title:"No Recipes"}]};
 
 const ingredientReducer = (state=initState, action) => {
     switch (action.type) {
@@ -9,6 +10,7 @@ const ingredientReducer = (state=initState, action) => {
             }
             let newState = [...state.ingredient, newingredient]
             return{
+                ...state,
                 ingredient: newState
             }
         case "DELETE_INGREDIENT":
@@ -16,11 +18,18 @@ const ingredientReducer = (state=initState, action) => {
                 return item.id !== action.id
             })
             return{
+                ...state,
                 ingredient: newingredient
             }
         case "CLEAR_INGREDIENT":
             return{
-                ingredient: []
+                ingredient: [],
+                recipe:[]
+            }
+        case "ADD_RECIPE":
+            return{
+                ...state,
+                recipes: action.recipes
             }
         default:
             return state;

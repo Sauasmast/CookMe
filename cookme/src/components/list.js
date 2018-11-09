@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteingredient } from '../actioncreator/action';
+import { deleteingredient, searchrecipe } from '../actioncreator/action';
 import { clearingredient } from '../actioncreator/action';
 
 const List = (props) => {
@@ -29,7 +29,7 @@ const List = (props) => {
         </div>
 
         <div className="card-action">
-        <button className="btn waves-effect waves-light" style={styles}> Search </button>
+        <button className="btn waves-effect waves-light" style={styles} onClick={props.searchrecipe}> Search </button>
         <button className="btn waves-effect waves-light" onClick={props.clearingredient}> Clear </button>
         </div>
       </div>
@@ -50,8 +50,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         clearingredient: () => {
             dispatch(clearingredient())
+    
+        },
+        searchrecipe: () => {
+            dispatch(searchrecipe())
+        }
     }
-}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
