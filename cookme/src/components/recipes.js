@@ -24,7 +24,7 @@ const Recipe = (props) => {
                     <a href="#!" className="secondary-content"><i className="material-icons"> Learn More </i></a>
                 </li>) :
                     <li key="Tauko" className="collection-item avatar">
-                    <i className="material-icons circle">folder</i>
+                    <i className="material-icons circle"> <img src='./food.jpg' alt="Food" style={style}/> </i>
                     <div className="info">
                     <span className="title">No Recipes </span>
                     <p> Please input the ingredient on the list and search for the recipes. </p>
@@ -38,7 +38,6 @@ const Recipe = (props) => {
 }
 
 const mapStateToProps = (state) =>{
-    console.log("From the last phase", state);
     return{
         recipes : state.recipes
     }

@@ -7,8 +7,7 @@ import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ingredientReducer from './reducer/ingredientReducer';
-// require('dotenv').config();
-console.log(process.env.REACT_APP_SAUGAT);
+require('dotenv').config();
 
 const store = createStore(ingredientReducer, applyMiddleware(thunk));
 

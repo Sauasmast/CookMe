@@ -1,6 +1,7 @@
 const initState = {ingredient: [],
                  recipes:[]};
 
+
 const ingredientReducer = (state=initState, action) => {
     switch (action.type) {
         case "ADD_INGREDIENT":
@@ -30,11 +31,20 @@ const ingredientReducer = (state=initState, action) => {
             }
 
         case "ADD_RECIPE":
-        console.log(action.recipes);
+
+        if (action.recipes.data.length === 0 ){
+            return{
+                ...state,
+                recipes: [{id:'Attn!', title:"Please view your ingredients. You did something wrong", image:"/Cold_Sweat_Emoji.png", usedIngredientCount:'None'}]
+            }
+        }
+        else{
             return{
                 ...state,
                 recipes: action.recipes.data
             }
+        } 
+            
 
         case "RECIPE_ERROR":
         const error  = [...state.recipes, {id:action.error.status, title: action.error}];
