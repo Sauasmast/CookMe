@@ -37,12 +37,11 @@ export const recipeerror = (error) =>{
 }
 
 export const searchrecipe = (ingredient) =>{
-    console.log(process.env.REACT_APP_URL + "Other values are " +  process.env.REACT_APP_KEY);
     const querystring = ingredient.map(item => item.name.toLowerCase());
          return dispatch => {
         axios.get(process.env.REACT_APP_URL + encodeURIComponent(querystring), { 'headers': { 'X-Mashape-Key': process.env.REACT_APP_KEY } })
         .then((response => {
-          console.log(response);
+        //   console.log(response);
           dispatch(addrecipe(response));
         }))
         .catch((error) => {
