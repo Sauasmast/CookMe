@@ -1,5 +1,5 @@
 const initState = {ingredient: [],
-                 recipes:[{title:"No Recipes"}]};
+                 recipes:[]};
 
 const ingredientReducer = (state=initState, action) => {
     switch (action.type) {
@@ -13,6 +13,7 @@ const ingredientReducer = (state=initState, action) => {
                 ...state,
                 ingredient: newState
             }
+
         case "DELETE_INGREDIENT":
             newingredient = state.ingredient.filter(item => {
                 return item.id !== action.id
@@ -21,16 +22,27 @@ const ingredientReducer = (state=initState, action) => {
                 ...state,
                 ingredient: newingredient
             }
+
         case "CLEAR_INGREDIENT":
             return{
                 ingredient: [],
-                recipe:[]
+                recipes:[]
             }
+
         case "ADD_RECIPE":
+        console.log(action.recipes);
             return{
                 ...state,
-                recipes: action.recipes
+                recipes: action.recipes.data
             }
+
+        case "RECIPE_ERROR":
+        const error  = [...state.recipes, {id:action.error.status, title: action.error}];
+        return{
+            ...state,
+            recipes: error
+        }
+
         default:
             return state;
     }

@@ -20,3 +20,15 @@ code {
 nav{
   margin-bottom: 50px;
 }
+
+.collection .collection-item.avatar {
+  min-height: 100px;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle{
+  width: 80px;
+  height: 80px;
+}
+.info {
+  margin-left: 40px;
+}

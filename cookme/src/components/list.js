@@ -23,13 +23,13 @@ const List = (props) => {
             <ul className="collection with-header">
             <li className="collection-header"><h5>Your Ingredients </h5></li>
             { check 
-            ? ingredient.map(item => <li className="collection-item" key={item.id}><div>{item.name}<a className="secondary-content waves-effect waves-teal btn-flat" onClick={()=>handleClick(item.id)}>Remove </a></div></li>)
+            ? ingredient.map(item => <li className="collection-item" key={item.id}><div>{item.name}<button className="secondary-content waves-effect waves-teal btn-flat" onClick={()=>handleClick(item.id)}>Remove </button></div></li>)
             : <li className="collection-item"><div>Put Items on the form </div></li> }
             </ul>
         </div>
 
         <div className="card-action">
-        <button className="btn waves-effect waves-light" style={styles} onClick={props.searchrecipe}> Search </button>
+        <button className="btn waves-effect waves-light" style={styles} onClick={ ()=> props.searchrecipe(props.ingredient)}> Search </button>
         <button className="btn waves-effect waves-light" onClick={props.clearingredient}> Clear </button>
         </div>
       </div>
@@ -52,8 +52,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(clearingredient())
     
         },
-        searchrecipe: () => {
-            dispatch(searchrecipe())
+        searchrecipe: (ingredient) => {
+            dispatch(searchrecipe(ingredient))
         }
     }
 }
