@@ -34,7 +34,6 @@ const Recipe = (props) => {
             </ul>
       </div>
     )
-    
 }
 
 const mapStateToProps = (state) =>{
