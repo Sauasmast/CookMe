@@ -17,7 +17,7 @@ const List = (props) => {
     const check = ingredient && ingredient.length;
 
     return(
-    <div className="col s4"> 
+    <div className="col xl4 l7 push-l2 m8 push-m2 s10 push-s1"> 
         <div className="card white">
         <div className="card-content">
             <ul className="collection with-header">

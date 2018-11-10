@@ -7,7 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/food.jpg');
-  background-size: 100%;
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -31,4 +31,12 @@ nav{
 }
 .info {
   margin-left: 40px;
+}
+
+#root > div > div > div > div.col.s12.card-panel.white.teal > h3{
+  text-align: center;
+}
+
+#root > div > div > div > div.col.s12.card-panel.white.teal > form{
+  margin-bottom: 20px;
 }
